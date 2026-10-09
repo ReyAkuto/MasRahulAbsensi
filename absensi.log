@@ -1,0 +1,695 @@
+2026-07-10 08:08:27 [INFO] ============================================================
+2026-07-10 08:08:27 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 08:08:27 [INFO]   esensi.exe : D:\script\python\Rahul\esensi.exe
+2026-07-10 08:08:27 [INFO]   Jam masuk  : 08:00
+2026-07-10 08:08:27 [INFO]   Jam pulang : 17:00
+2026-07-10 08:08:27 [INFO]   Delay maks : ±5 menit
+2026-07-10 08:08:27 [INFO] ============================================================
+2026-07-10 08:08:27 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 08:08:27 [INFO] [is-shift] ok=True → {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 08:08:27 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 08:20:06 [INFO] ============================================================
+2026-07-10 08:20:06 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 08:20:06 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 08:20:06 [INFO]   Jam masuk  : 08:00
+2026-07-10 08:20:06 [INFO]   Jam pulang : 17:00
+2026-07-10 08:20:06 [INFO]   Delay maks : ±5 menit
+2026-07-10 08:20:06 [INFO] ============================================================
+2026-07-10 08:20:06 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 08:20:06 [INFO] [is-shift] ok=True → {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 08:20:06 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 08:20:21 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 08:33:37 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 08:33:44 [INFO] [cek-status] masuk=True, pulang=False → Sudah absen masuk. Belum absen pulang.
+2026-07-10 08:34:10 [INFO] ============================================================
+2026-07-10 08:34:10 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 08:34:10 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 08:34:10 [INFO]   Jam masuk  : 08:00
+2026-07-10 08:34:10 [INFO]   Jam pulang : 17:00
+2026-07-10 08:34:10 [INFO]   Delay maks : ±5 menit
+2026-07-10 08:34:10 [INFO] ============================================================
+2026-07-10 08:34:10 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 08:34:11 [INFO] [is-shift] ok=True → {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 08:34:11 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 08:34:31 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 08:34:38 [INFO] [cek-status] masuk=True, pulang=False → Sudah absen masuk. Belum absen pulang.
+2026-07-10 09:02:40 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 09:02:55 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 09:03:03 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 09:10:50 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 09:10:57 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 09:11:16 [INFO] ============================================================
+2026-07-10 09:11:16 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 09:11:16 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 09:11:16 [INFO]   Jam masuk  : 08:00
+2026-07-10 09:11:16 [INFO]   Jam pulang : 17:00
+2026-07-10 09:11:16 [INFO]   Delay maks : ±5 menit
+2026-07-10 09:11:16 [INFO] ============================================================
+2026-07-10 09:11:16 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 09:11:17 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 09:11:17 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 09:47:42 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 09:47:56 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 09:48:02 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 09:48:10 [INFO] ============================================================
+2026-07-10 09:48:10 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 09:48:10 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 09:48:10 [INFO]   Jam masuk  : 08:00
+2026-07-10 09:48:10 [INFO]   Jam pulang : 17:00
+2026-07-10 09:48:10 [INFO]   Delay maks : ±5 menit
+2026-07-10 09:48:10 [INFO] ============================================================
+2026-07-10 09:48:10 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 09:48:10 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 09:48:10 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 09:55:30 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 09:56:59 [ERROR] Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\script\python\Rahul\web_absensi.py", line 241, in index
+    return render_template("index.html", jam_masuk=jam_masuk_rt, jam_pulang=jam_pulang_rt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 66, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 100, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2026-07-10 09:57:01 [ERROR] Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\script\python\Rahul\web_absensi.py", line 241, in index
+    return render_template("index.html", jam_masuk=jam_masuk_rt, jam_pulang=jam_pulang_rt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 66, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 100, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2026-07-10 09:57:27 [ERROR] Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\script\python\Rahul\web_absensi.py", line 241, in index
+    return render_template("index.html", jam_masuk=jam_masuk_rt, jam_pulang=jam_pulang_rt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 66, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\templating.py", line 100, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2026-07-10 09:58:55 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 09:59:01 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 09:59:15 [INFO] ============================================================
+2026-07-10 09:59:15 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 09:59:15 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 09:59:15 [INFO]   Jam masuk  : 08:00
+2026-07-10 09:59:15 [INFO]   Jam pulang : 17:00
+2026-07-10 09:59:15 [INFO]   Delay maks : ±5 menit
+2026-07-10 09:59:15 [INFO] ============================================================
+2026-07-10 09:59:15 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 09:59:16 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 09:59:16 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 10:11:57 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 10:12:04 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 10:17:08 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 10:17:22 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 10:17:29 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 10:20:26 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 10:20:32 [ERROR] [cek-status] GAGAL: [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix threads smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline echoes softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent channel shadows smoothly[0m
+[38;5;46m[04][0m [38;5;51mintercepting silent gateway tokens softly[0m
+[38;5;46m[05][0m [38;5;51mintercepting silent handshake tokens securely[0m
+[38;5;46m[06][0m [38;5;51mintercepting silent timeline shards securely[0m
+[38;5;46m[07][0m [38;5;51mintercepting silent packet keys gently[0m
+[38;5;46m[08][0m [38;5;51mintercepting silent channel keys cleanly[0m
+[38;5;226m[ok][0m [38;5;244mrendering payload[0m
+[38;5;213mAnda telah presensi masuk.
+2026-07-10 10:20:45 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 10:20:51 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 10:21:08 [INFO] ============================================================
+2026-07-10 10:21:08 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 10:21:08 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 10:21:08 [INFO]   Jam masuk  : 08:00
+2026-07-10 10:21:08 [INFO]   Jam pulang : 17:00
+2026-07-10 10:21:08 [INFO]   Delay maks : ±5 menit
+2026-07-10 10:21:08 [INFO] ============================================================
+2026-07-10 10:21:08 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 10:21:09 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 10:21:09 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 11:48:06 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 11:48:14 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 11:58:23 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 11:58:30 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 14:57:22 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 14:57:29 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 14:57:42 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 14:57:49 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 17:36:43 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 17:36:50 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 17:53:23 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 17:54:10 [INFO] ============================================================
+2026-07-10 17:54:10 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 17:54:10 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 17:54:10 [INFO]   Jam masuk  : 08:00
+2026-07-10 17:54:10 [INFO]   Jam pulang : 17:00
+2026-07-10 17:54:10 [INFO]   Delay maks : ±5 menit
+2026-07-10 17:54:10 [INFO] ============================================================
+2026-07-10 17:54:10 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 17:54:10 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 17:54:10 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 18:47:16 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 18:47:22 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-10 18:47:43 [INFO] [absen-manual] Absen pulang BERHASIL → [38;5;213m[pulang] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent timeline keys smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent matrix shadows securely[0
+2026-07-10 18:48:20 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 18:48:26 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.
+2026-07-10 20:46:04 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 20:46:14 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 20:46:20 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.
+2026-07-10 20:46:27 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-10 20:46:32 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.
+2026-07-10 20:46:56 [INFO] ============================================================
+2026-07-10 20:46:56 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 20:46:56 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 20:46:56 [INFO]   Jam masuk  : 08:00
+2026-07-10 20:46:56 [INFO]   Jam pulang : 18:00
+2026-07-10 20:46:56 [INFO]   Delay maks : ±5 menit
+2026-07-10 20:46:56 [INFO] ============================================================
+2026-07-10 20:46:56 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 20:46:56 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-10 20:46:56 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-10 20:49:17 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-10 20:49:36 [INFO] ============================================================
+2026-07-10 20:49:36 [INFO] Hulk Absen mulai berjalan.
+2026-07-10 20:49:36 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-10 20:49:36 [INFO]   Jam masuk  : 08:00
+2026-07-10 20:49:36 [INFO]   Jam pulang : 17:00
+2026-07-10 20:49:36 [INFO]   Delay maks : ±5 menit
+2026-07-10 20:49:36 [INFO] ============================================================
+2026-07-10 20:49:36 [INFO] Hari baru: 2026-07-10. Reset status absensi.
+2026-07-10 20:49:36 [INFO] [is-shift] SKIP_SHIFT_CHECK=true → anggap selalu ada shift, lewati cek ke server.
+2026-07-10 20:49:42 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent packet echoes softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet echoes securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake vectors softly[0m
+[38;5;46m[04][0
+2026-07-10 20:49:42 [INFO] [status-today] parsed -> masuk=True, pulang=True
+2026-07-10 20:49:42 [INFO] Sudah absen masuk (dari status-today). Lewati.
+2026-07-10 20:49:42 [INFO] Sudah absen pulang (dari log). Lewati.
+2026-07-10 20:49:42 [INFO] Absen masuk & pulang hari ini selesai. Tunggu hari berikutnya...
+2026-07-11 00:04:37 [INFO] Hari baru: 2026-07-11. Reset status absensi.
+2026-07-11 00:04:37 [INFO] [is-shift] SKIP_SHIFT_CHECK=true → anggap selalu ada shift, lewati cek ke server.
+2026-07-11 08:56:25 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent handshake echoes softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent signal echoes gently[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent timeline shards gently[0m
+[38;5;46m[04][0m
+2026-07-11 08:56:25 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-07-11 08:56:25 [INFO] Sudah absen masuk (dari status-today). Lewati.
+2026-07-11 09:28:21 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-11 09:28:30 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-11 17:00:18 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent gateway threads cleanly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent session keys smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent channel tokens softly[0m
+[38;5;46m[04][0m
+2026-07-11 17:00:18 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-07-11 17:00:18 [INFO] Menunggu delay acak 105 detik sebelum absen pulang…
+2026-07-11 17:02:03 [INFO] Mengirim absen pulang…
+2026-07-11 17:02:11 [INFO] Absen pulang BERHASIL -> [38;5;213m[pulang] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal ripples softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline echoes cleanly[0m
+2026-07-11 17:02:11 [INFO] Absen masuk & pulang hari ini selesai. Tunggu hari berikutnya...
+2026-07-11 18:41:06 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-11 18:41:12 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.
+2026-07-12 00:02:03 [INFO] Hari baru: 2026-07-12. Reset status absensi.
+2026-07-12 00:02:03 [INFO] [is-shift] SKIP_SHIFT_CHECK=true → anggap selalu ada shift, lewati cek ke server.
+2026-07-12 08:00:27 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent session sparks cleanly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent payload shards gently[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent packet tokens softly[0m
+[38;5;46m[04][0m 
+2026-07-12 08:00:27 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:00:27 [INFO] Menunggu delay acak 117 detik sebelum absen masuk…
+2026-07-12 08:02:24 [INFO] Mengirim absen masuk…
+2026-07-12 08:02:25 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:03:00 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent attendance sparks softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent matrix echoes softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent gateway shards securely[0m
+[38;5;46m[04][
+2026-07-12 08:03:00 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:03:00 [INFO] Menunggu delay acak 37 detik sebelum absen masuk…
+2026-07-12 08:03:37 [INFO] Mengirim absen masuk…
+2026-07-12 08:03:37 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:04:13 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix threads gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent signal shards cleanly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent attendance ripples gently[0m
+[38;5;46m[04][
+2026-07-12 08:04:13 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:04:13 [INFO] Menunggu delay acak 111 detik sebelum absen masuk…
+2026-07-12 08:06:04 [INFO] Mengirim absen masuk…
+2026-07-12 08:06:04 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:06:40 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal cookies securely[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent payload keys gently[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent payload vectors smoothly[0m
+[38;5;46m[04][0
+2026-07-12 08:06:40 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:06:40 [INFO] Menunggu delay acak 174 detik sebelum absen masuk…
+2026-07-12 08:09:34 [INFO] Mengirim absen masuk…
+2026-07-12 08:09:34 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:10:09 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix shadows cleanly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent payload threads smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent packet echoes securely[0m
+[38;5;46m[04]
+2026-07-12 08:10:09 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:10:09 [INFO] Menunggu delay acak 231 detik sebelum absen masuk…
+2026-07-12 08:14:00 [INFO] Mengirim absen masuk…
+2026-07-12 08:14:01 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:14:36 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent channel tokens softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet ripples securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent matrix keys gently[0m
+[38;5;46m[04][0m [
+2026-07-12 08:14:36 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:14:36 [INFO] Menunggu delay acak 11 detik sebelum absen masuk…
+2026-07-12 08:14:47 [INFO] Mengirim absen masuk…
+2026-07-12 08:14:47 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:15:23 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent payload keys gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet vectors softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent session sparks gently[0m
+[38;5;46m[04][0m [3
+2026-07-12 08:15:23 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:15:23 [INFO] Menunggu delay acak 44 detik sebelum absen masuk…
+2026-07-12 08:16:07 [INFO] Mengirim absen masuk…
+2026-07-12 08:16:07 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:16:42 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent timeline shards securely[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent matrix vectors securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent attendance shadows gently[0m
+[38;5;46m[
+2026-07-12 08:16:42 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:16:42 [INFO] Menunggu delay acak 198 detik sebelum absen masuk…
+2026-07-12 08:20:00 [INFO] Mengirim absen masuk…
+2026-07-12 08:20:01 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:20:36 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent payload ripples softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline sparks cleanly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent signal cookies softly[0m
+[38;5;46m[04][0
+2026-07-12 08:20:36 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:20:36 [INFO] Menunggu delay acak 232 detik sebelum absen masuk…
+2026-07-12 08:24:28 [INFO] Mengirim absen masuk…
+2026-07-12 08:24:28 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:25:04 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent payload shards softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent channel shadows softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent packet ripples smoothly[0m
+[38;5;46m[04][0
+2026-07-12 08:25:04 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:25:04 [INFO] Menunggu delay acak 50 detik sebelum absen masuk…
+2026-07-12 08:25:54 [INFO] Mengirim absen masuk…
+2026-07-12 08:25:54 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:26:30 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent channel threads smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent attendance cookies securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent channel ripples smoothly[0m
+[38;5;4
+2026-07-12 08:26:30 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:26:30 [INFO] Menunggu delay acak 16 detik sebelum absen masuk…
+2026-07-12 08:26:46 [INFO] Mengirim absen masuk…
+2026-07-12 08:26:46 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:27:21 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent packet keys securely[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent handshake tokens securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake echoes gently[0m
+[38;5;46m[04]
+2026-07-12 08:27:21 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:27:21 [INFO] Menunggu delay acak 156 detik sebelum absen masuk…
+2026-07-12 08:29:57 [INFO] Mengirim absen masuk…
+2026-07-12 08:29:57 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:30:33 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent handshake ripples softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline keys smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent channel shards cleanly[0m
+[38;5;46m[04]
+2026-07-12 08:30:33 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:30:33 [INFO] Menunggu delay acak 28 detik sebelum absen masuk…
+2026-07-12 08:31:01 [INFO] Mengirim absen masuk…
+2026-07-12 08:31:01 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:31:38 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent handshake shards smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline echoes softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent session vectors securely[0m
+[38;5;46m[0
+2026-07-12 08:31:38 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:31:38 [INFO] Menunggu delay acak 179 detik sebelum absen masuk…
+2026-07-12 08:34:37 [INFO] Mengirim absen masuk…
+2026-07-12 08:34:37 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:35:13 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix shards softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent attendance sparks gently[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake vectors gently[0m
+[38;5;46m[04]
+2026-07-12 08:35:13 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:35:13 [INFO] Menunggu delay acak 57 detik sebelum absen masuk…
+2026-07-12 08:36:10 [INFO] Mengirim absen masuk…
+2026-07-12 08:36:10 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:36:45 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal keys gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent signal vectors securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake shadows cleanly[0m
+[38;5;46m[04][0
+2026-07-12 08:36:45 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:36:45 [INFO] Menunggu delay acak 292 detik sebelum absen masuk…
+2026-07-12 08:41:37 [INFO] Mengirim absen masuk…
+2026-07-12 08:41:38 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:42:13 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal keys gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent timeline vectors softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent session shadows cleanly[0m
+[38;5;46m[04][0m 
+2026-07-12 08:42:13 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:42:13 [INFO] Menunggu delay acak 253 detik sebelum absen masuk…
+2026-07-12 08:46:26 [INFO] Mengirim absen masuk…
+2026-07-12 08:46:26 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:47:02 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix ripples gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent gateway vectors gently[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake sparks gently[0m
+[38;5;46m[04][0
+2026-07-12 08:47:02 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:47:02 [INFO] Menunggu delay acak 262 detik sebelum absen masuk…
+2026-07-12 08:51:24 [INFO] Mengirim absen masuk…
+2026-07-12 08:51:24 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:51:59 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal ripples softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent handshake echoes securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent matrix keys smoothly[0m
+[38;5;46m[04][0
+2026-07-12 08:51:59 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:51:59 [INFO] Menunggu delay acak 208 detik sebelum absen masuk…
+2026-07-12 08:55:27 [INFO] Mengirim absen masuk…
+2026-07-12 08:55:28 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:56:03 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent channel vectors securely[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent signal echoes smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent packet threads securely[0m
+[38;5;46m[04]
+2026-07-12 08:56:03 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:56:03 [INFO] Menunggu delay acak 176 detik sebelum absen masuk…
+2026-07-12 08:58:59 [INFO] Mengirim absen masuk…
+2026-07-12 08:58:59 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 08:59:35 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal tokens softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent channel shards smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent packet tokens softly[0m
+[38;5;46m[04][0m 
+2026-07-12 08:59:35 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 08:59:35 [INFO] Menunggu delay acak 28 detik sebelum absen masuk…
+2026-07-12 09:00:03 [INFO] Mengirim absen masuk…
+2026-07-12 09:00:03 [ERROR] Absen masuk GAGAL -> error: request failed: 500 Internal Server Error: {"status":false,"message":"Attempt to read property \"jam_masuk\" on null"}
+2026-07-12 09:00:38 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent packet cookies gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent payload vectors securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent session cookies softly[0m
+[38;5;46m[04][
+2026-07-12 09:00:38 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-07-12 09:00:38 [INFO] Menunggu delay acak 170 detik sebelum absen masuk…
+2026-07-12 09:00:48 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-12 09:00:54 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-07-12 10:19:09 [INFO] ============================================================
+2026-07-12 10:19:09 [INFO] Hulk Absen mulai berjalan.
+2026-07-12 10:19:09 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-12 10:19:09 [INFO]   Jam masuk  : 08:00
+2026-07-12 10:19:09 [INFO]   Jam pulang : 17:00
+2026-07-12 10:19:09 [INFO]   Delay maks : ±5 menit
+2026-07-12 10:19:09 [INFO] ============================================================
+2026-07-12 10:19:09 [INFO] Hari baru: 2026-07-12. Reset status absensi.
+2026-07-12 10:19:09 [INFO] Hari ini Minggu. Tidak ada absensi.
+2026-07-12 11:16:53 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-12 11:17:00 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-07-13 00:04:01 [INFO] Hari baru: 2026-07-13. Reset status absensi.
+2026-07-13 00:04:03 [INFO] [is-shift] ok=True -> {
+  "status": true,
+  "data": {
+    "is_shift": false
+  }
+}
+2026-07-13 00:04:03 [INFO] Tidak ada shift hari ini. Lewati absensi.
+2026-07-13 07:55:31 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-13 07:55:38 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-07-13 08:01:46 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-13 08:01:52 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-07-13 08:02:00 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-13 08:02:05 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-07-13 08:22:26 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-07-13 08:22:56 [INFO] ============================================================
+2026-07-13 08:22:56 [INFO] Hulk Absen mulai berjalan.
+2026-07-13 08:22:56 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-13 08:22:56 [INFO]   Jam masuk  : 08:00
+2026-07-13 08:22:56 [INFO]   Jam pulang : 17:00
+2026-07-13 08:22:56 [INFO]   Delay maks : ±5 menit
+2026-07-13 08:22:56 [INFO] ============================================================
+2026-07-13 08:22:56 [INFO] Hari baru: 2026-07-13. Reset status absensi.
+2026-07-13 08:23:03 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent handshake shadows cleanly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent channel threads smoothly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent signal echoes smoothly[0m
+[38;5;46m[0
+2026-07-13 08:23:03 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-07-13 08:23:03 [INFO] Sudah absen masuk (dari status-today). Lewati.
+2026-07-13 08:23:18 [INFO] ============================================================
+2026-07-13 08:23:18 [INFO] Hulk Absen mulai berjalan.
+2026-07-13 08:23:18 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-13 08:23:18 [INFO]   Jam masuk  : 08:00
+2026-07-13 08:23:18 [INFO]   Jam pulang : 17:00
+2026-07-13 08:23:18 [INFO]   Delay maks : ±5 menit
+2026-07-13 08:23:18 [INFO] ============================================================
+2026-07-13 08:23:18 [INFO] Hari baru: 2026-07-13. Reset status absensi.
+2026-07-13 08:23:24 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent gateway echoes softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent signal echoes cleanly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent matrix threads securely[0m
+[38;5;46m[04][0m
+2026-07-13 08:23:24 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-07-13 08:23:24 [INFO] Sudah absen masuk (dari status-today). Lewati.
+2026-07-13 08:23:49 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-13 08:23:56 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-14 10:11:55 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-14 10:12:03 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-14 10:12:19 [INFO] ============================================================
+2026-07-14 10:12:19 [INFO] Hulk Absen mulai berjalan.
+2026-07-14 10:12:19 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-07-14 10:12:19 [INFO]   Jam masuk  : 08:25
+2026-07-14 10:12:19 [INFO]   Jam pulang : 17:00
+2026-07-14 10:12:19 [INFO]   Delay maks : ±5 menit
+2026-07-14 10:12:19 [INFO] ============================================================
+2026-07-14 10:12:19 [INFO] Hari baru: 2026-07-14. Reset status absensi.
+2026-07-14 10:12:26 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent attendance threads gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet sparks softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent handshake echoes gently[0m
+[38;5;46m[04]
+2026-07-14 10:12:26 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-07-14 10:12:26 [INFO] Sudah absen masuk (dari status-today). Lewati.
+2026-07-14 10:36:43 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-07-14 10:36:50 [INFO] [cek-status] masuk=True, pulang=False -> Sudah absen masuk. Belum absen pulang.
+2026-07-14 19:23:23 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix ripples softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent gateway cookies cleanly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent attendance echoes securely[0m
+[38;5;46m[04
+2026-07-14 19:23:23 [INFO] [status-today] parsed -> masuk=True, pulang=True
+2026-07-14 19:23:23 [INFO] Sudah absen pulang (dari status-today). Lewati.
+2026-07-14 19:23:23 [INFO] Absen masuk & pulang hari ini selesai. Tunggu hari berikutnya...
+2026-07-15 00:00:19 [INFO] Hari baru: 2026-07-15. Reset status absensi.
+2026-10-09 22:06:31 [INFO] ============================================================
+2026-10-09 22:06:31 [INFO] Hulk Absen mulai berjalan.
+2026-10-09 22:06:31 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-10-09 22:06:31 [INFO]   Jam masuk  : 08:25
+2026-10-09 22:06:31 [INFO]   Jam pulang : 17:00
+2026-10-09 22:06:31 [INFO]   Delay maks : ±5 menit
+2026-10-09 22:06:31 [INFO] ============================================================
+2026-10-09 22:06:31 [INFO] Hari baru: 2026-10-09. Reset status absensi.
+2026-10-09 22:06:38 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent channel cookies smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet echoes cleanly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent matrix ripples gently[0m
+[38;5;46m[04][0
+2026-10-09 22:06:38 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-10-09 22:06:38 [INFO] Menunggu delay acak 239 detik sebelum absen masuk…
+2026-10-09 22:06:48 [INFO] Dihentikan oleh pengguna (Ctrl+C).
+2026-10-09 22:07:44 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-10-09 22:07:49 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-10-09 22:08:02 [INFO] ============================================================
+2026-10-09 22:08:02 [INFO] Hulk Absen mulai berjalan.
+2026-10-09 22:08:02 [INFO]   esensi.exe : d:\script\python\Rahul\esensi.exe
+2026-10-09 22:08:02 [INFO]   Jam masuk  : 08:25
+2026-10-09 22:08:02 [INFO]   Jam pulang : 17:00
+2026-10-09 22:08:02 [INFO]   Delay maks : ±5 menit
+2026-10-09 22:08:02 [INFO] ============================================================
+2026-10-09 22:08:02 [INFO] Hari baru: 2026-10-09. Reset status absensi.
+2026-10-09 22:08:06 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-10-09 22:08:08 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent timeline cookies gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent matrix ripples securely[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent matrix tokens smoothly[0m
+[38;5;46m[04]
+2026-10-09 22:08:08 [INFO] [status-today] parsed -> masuk=False, pulang=False
+2026-10-09 22:08:08 [INFO] Menunggu delay acak 77 detik sebelum absen masuk…
+2026-10-09 22:08:11 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-10-09 22:08:15 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-10-09 22:08:21 [INFO] [cek-status] masuk=False, pulang=False -> Belum absen masuk hari ini.
+2026-10-09 22:09:25 [INFO] Mengirim absen masuk…
+2026-10-09 22:09:31 [INFO] Absen masuk BERHASIL -> [38;5;213m[masuk] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent matrix tokens gently[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent packet sparks cleanly[0m
+[3
+2026-10-09 22:09:38 [INFO] [status-today] ok=True -> [38;5;213m[status-today] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent session threads softly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent handshake threads softly[0m
+[38;5;46m[03][0m [38;5;51mintercepting silent channel keys gently[0m
+[38;5;46m[04][0m
+2026-10-09 22:09:38 [INFO] [status-today] parsed -> masuk=True, pulang=False
+2026-10-09 22:09:38 [INFO] Menunggu delay acak 34 detik sebelum absen pulang…
+2026-10-09 22:10:12 [INFO] Mengirim absen pulang…
+2026-10-09 22:10:13 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-10-09 22:10:19 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.
+2026-10-09 22:10:20 [INFO] Absen pulang BERHASIL -> [38;5;213m[pulang] ========================[0m
+[38;5;46m[01][0m [38;5;51mintercepting silent signal shadows smoothly[0m
+[38;5;46m[02][0m [38;5;51mintercepting silent gateway shadows gently[0
+2026-10-09 22:10:20 [INFO] Absen masuk & pulang hari ini selesai. Tunggu hari berikutnya...
+2026-10-09 22:14:40 [INFO] [cek-status] Memulai pengecekan status dari server...
+2026-10-09 22:14:46 [INFO] [cek-status] masuk=True, pulang=True -> Absen masuk & pulang sudah selesai hari ini.

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hulk Absen — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Zinc neutral dark — clean, no blue tint */
+  --bg:        #0A0A0B;
+  --bg1:       #111113;
+  --bg2:       #18181B;
+  --bg3:       #1E1E22;
+  --bg4:       #26262C;
+
+  --br:        #27272A;
+  --br2:       #3F3F46;
+  --br3:       #52525B;
+
+  --text:      #FAFAFA;
+  --text-dim:  #A1A1AA;
+  --muted:     #71717A;
+  --subtle:    #3F3F46;
+
+  /* Emerald — primary accent, calm and readable */
+  --accent:        #10B981;
+  --accent-dim:    rgba(16,185,129,.08);
+  --accent-glow:   rgba(16,185,129,.16);
+  --accent-border: rgba(16,185,129,.22);
+
+  /* Amber — time / schedule */
+  --amber:         #F59E0B;
+  --amber-dim:     rgba(245,158,11,.08);
+  --amber-border:  rgba(245,158,11,.22);
+
+  /* Rose — errors / stop */
+  --red:           #F43F5E;
+  --red-dim:       rgba(244,63,94,.08);
+  --red-border:    rgba(244,63,94,.22);
+
+  /* Sky — info / secondary actions */
+  --blue:          #38BDF8;
+  --blue-dim:      rgba(56,189,248,.08);
+  --blue-border:   rgba(56,189,248,.22);
+
+  /* Aliases so existing markup still works */
+  --teal:          var(--accent);
+  --teal-dim:      var(--accent-dim);
+  --teal-glow:     var(--accent-glow);
+  --teal-border:   var(--accent-border);
+
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'Geist', system-ui, sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  22px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+header {
+  background: rgba(8,13,26,.92);
+  border-bottom: 1px solid var(--br);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+.wordmark {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: -.4px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.wm-hulk  { color: var(--teal); font-weight: 600; }
+.wm-slash { color: var(--muted); }
+.wm-absen { color: var(--text-dim); font-weight: 500; }
+
+.header-badge {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg3);
+  border: 1px solid var(--br2);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-pill {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .3px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .3s, border-color .3s;
+}
+.status-pill.on  { background: var(--teal-dim); border: 1px solid var(--teal-border); color: var(--teal); }
+.status-pill.off { background: var(--red-dim);  border: 1px solid var(--red-border);  color: var(--red); }
+
+.status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.status-pill.on .status-dot  { animation: blink 2s ease-in-out infinite; }
+.status-pill.off .status-dot { animation: blink 1.8s ease-in-out infinite; }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+.clock {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--amber);
+  letter-spacing: .6px;
+  font-weight: 500;
+}
+
+.btn-nav {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .4px;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--br2);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.btn-nav:hover { color: var(--text); border-color: var(--br3); background: var(--bg3); }
+.btn-nav:active { transform: translateY(1px); }
+
+/* ── Main ── */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  gap: 20px;
+}
+
+/* ── Big Status Section ── */
+.status-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cards-row {
+  display: flex;
+  gap: 12px;
+}
+
+.big-card {
+  background: var(--bg1);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  width: 164px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .35s, background .35s;
+  text-align: center;
+  cursor: default;
+}
+
+.big-card.done {
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
+}
+
+.card-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--bg2);
+  border: 1px solid var(--br2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  transition: border-color .35s, background .35s;
+  color: var(--subtle);
+}
+.big-card.done .card-icon-wrap {
+  background: var(--teal-dim);
+  border-color: var(--teal-border);
+  color: var(--teal);
+}
+
+.big-card .card-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.big-card .card-status {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--subtle);
+  letter-spacing: -.4px;
+  transition: color .35s;
+}
+.big-card.done .card-status { color: var(--teal); }
+
+/* ── Info Chips ── */
+.info-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info-chip {
+  background: var(--bg1);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 110px;
+}
+.chip-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.chip-val {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+.chip-val.amber { color: var(--amber); }
+
+/* ── CTA Buttons Area ── */
+.actions-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn-cek {
+  width: 100%;
+  padding: 11px 24px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--sans);
+  cursor: pointer;
+  border: 1px solid var(--blue-border);
+  background: var(--blue-dim);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity .12s, transform .12s, box-shadow .12s;
+  letter-spacing: .1px;
+}
+.btn-cek:hover:not(:disabled) {
+  opacity: .82;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(77,166,255,.12);
+}
+.btn-cek:active:not(:disabled) { transform: translateY(0); }
+.btn-cek:disabled { opacity: .36; cursor: not-allowed; }
+
+.btn-log {
+  width: 100%;
+  padding: 9px 24px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--sans);
+  cursor: pointer;
+  border: 1px solid var(--br2);
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: color .15s, border-color .15s;
+  letter-spacing: .1px;
+}
+.btn-log:hover { color: var(--text-dim); border-color: var(--br3); }
+
+/* ── Cek Result ── */
+.cek-result {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+.cek-result.show { display: flex; animation: fadeUp .2s ease; }
+
+.cek-chips {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+.cek-chip {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid;
+}
+.cek-chip.ok { background: var(--teal-dim); border-color: var(--teal-border); color: var(--teal); }
+.cek-chip.no { background: var(--bg2); border-color: var(--br); color: var(--subtle); }
+
+.cek-pesan {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+  font-family: var(--mono);
+}
+
+/* ── Log Drawer ── */
+.log-overlay {
+  position: fixed; inset: 0;
+  background: rgba(4,7,15,.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.log-overlay.open { display: flex; animation: overlayIn .18s ease; }
+@keyframes overlayIn { from{opacity:0} to{opacity:1} }
+
+.log-drawer {
+  background: var(--bg1);
+  border: 1px solid var(--br);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 860px;
+  height: 62vh;
+  display: flex;
+  flex-direction: column;
+  animation: drawerUp .24s cubic-bezier(.22,1,.36,1);
+}
+@keyframes drawerUp { from{transform:translateY(48px);opacity:0} to{transform:none;opacity:1} }
+
+.drawer-header {
+  padding: 0 22px;
+  height: 50px;
+  border-bottom: 1px solid var(--br);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2s ease-in-out infinite;
+}
+.drawer-title { font-size: 12px; font-weight: 500; color: var(--text); }
+.drawer-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--subtle);
+  background: var(--bg2);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+.drawer-close {
+  margin-left: auto;
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  background: var(--bg2);
+  border: 1px solid var(--br2);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  transition: color .15s, border-color .15s;
+}
+.drawer-close:hover { color: var(--text); border-color: var(--br3); }
+
+.drawer-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 22px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.85;
+}
+.drawer-scroll::-webkit-scrollbar { width: 3px; }
+.drawer-scroll::-webkit-scrollbar-thumb { background: var(--br2); border-radius: 2px; }
+
+.log-line {
+  display: flex;
+  gap: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background .1s;
+}
+.log-line:hover { background: rgba(255,255,255,.016); }
+.log-ts  { color: var(--subtle); white-space: nowrap; flex-shrink: 0; font-size: 10px; }
+.log-lvl { white-space: nowrap; flex-shrink: 0; width: 52px; font-size: 10px; }
+.log-msg { color: var(--text-dim); word-break: break-all; font-size: 10px; }
+.log-INFO    { color: var(--blue); }
+.log-ERROR   { color: var(--red); }
+.log-WARN    { color: var(--amber); }
+.log-WARNING { color: var(--amber); }
+
+/* ── Toast ── */
+#toast {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  background: var(--bg3);
+  border-radius: var(--radius-md);
+  padding: 11px 16px;
+  font-size: 12px;
+  max-width: 300px;
+  z-index: 999;
+  display: none;
+  border: 1px solid var(--br2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  font-family: var(--mono);
+}
+#toast.show { display: block; animation: fadeUp .18s ease; }
+#toast.ok   { border-color: var(--teal-border); color: var(--teal); }
+#toast.err  { border-color: var(--red-border);  color: var(--red);  }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+@keyframes spin   { to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) {
+  .cards-row { gap: 8px; }
+  .big-card  { width: 142px; padding: 22px 22px; }
+  .info-row  { flex-wrap: wrap; justify-content: center; }
+  .actions-col { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="wordmark">
+    <span class="wm-hulk">hulk</span>
+    <span class="wm-slash">/</span>
+    <span class="wm-absen">absen</span>
+  </span>
+  <span class="header-badge">dashboard</span>
+  <div class="header-right">
+    <span class="status-pill off" id="prosesPill">
+      <span class="status-dot"></span>
+      <span id="prosesLabel">proses mati</span>
+    </span>
+    <span class="clock" id="clock">--:--:--</span>
+    <a href="/config" class="btn-nav">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.474l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+      </svg>
+      Config
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Status cards -->
+  <div class="status-section">
+    <div class="status-eyebrow">status absensi hari ini</div>
+    <div class="cards-row">
+      <div class="big-card" id="cardMasuk">
+        <div class="card-icon-wrap">
+          <!-- Login / enter icon -->
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+          </svg>
+        </div>
+        <div class="card-label">Masuk</div>
+        <div class="card-status" id="statusMasuk">Belum</div>
+      </div>
+      <div class="big-card" id="cardPulang">
+        <div class="card-icon-wrap">
+          <!-- Home / exit icon -->
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 8h1v5.5A1.5 1.5 0 0 0 4 15h8a1.5 1.5 0 0 0 1.5-1.5V8h1a.5.5 0 0 0 .354-.854l-6-6zM8 13H5.5v-3h5V13H8zm1.5-4h-3v-1.5h3V9zM8 2.207 13.293 7.5H2.707z"/>
+          </svg>
+        </div>
+        <div class="card-label">Pulang</div>
+        <div class="card-status" id="statusPulang">Belum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info chips -->
+  <div class="info-row">
+    <div class="info-chip">
+      <span class="chip-label">Hari ini</span>
+      <span class="chip-val" id="tanggalVal">—</span>
+    </div>
+    <div class="info-chip">
+      <span class="chip-label">Jam masuk</span>
+      <span class="chip-val amber">{{ jam_masuk }}</span>
+    </div>
+    <div class="info-chip">
+      <span class="chip-label">Jam pulang</span>
+      <span class="chip-val amber">{{ jam_pulang }}</span>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-col">
+    <button class="btn-cek" id="btnCek" onclick="cekStatus()">
+      <svg id="cekIcon" width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1Z"/>
+        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466Z"/>
+      </svg>
+      Cek status sekarang
+    </button>
+
+    <div class="cek-result" id="cekResult">
+      <div class="cek-chips">
+        <span class="cek-chip no" id="cekMasuk">Masuk: —</span>
+        <span class="cek-chip no" id="cekPulang">Pulang: —</span>
+      </div>
+      <div class="cek-pesan" id="cekPesan"></div>
+    </div>
+
+    <button class="btn-log" onclick="bukaLog()">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M2 2.5A.5.5 0 0 1 2.5 2h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 2.5Zm0 4A.5.5 0 0 1 2.5 6h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 6.5Zm0 4A.5.5 0 0 1 2.5 10h6a.5.5 0 0 1 0 1h-6A.5.5 0 0 1 2 10.5Z"/>
+      </svg>
+      Lihat log
+    </button>
+  </div>
+
+</div>
+
+<!-- Log Drawer -->
+<div class="log-overlay" id="logOverlay" onclick="tutupLog(event)">
+  <div class="log-drawer">
+    <div class="drawer-header">
+      <span class="live-dot"></span>
+      <span class="drawer-title">Log absensi</span>
+      <span class="drawer-count" id="logCount">0 baris</span>
+      <button class="drawer-close" onclick="tutupLog()">&#x2715;</button>
+    </div>
+    <div class="drawer-scroll" id="logBox"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* Clock + tanggal */
+(function tick() {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toTimeString().slice(0, 8);
+  const el = document.getElementById('tanggalVal');
+  if (el) el.textContent = now.toLocaleDateString('id-ID', {
+    weekday: 'short', day: 'numeric', month: 'short', year: 'numeric'
+  });
+  setTimeout(tick, 1000);
+})();
+
+/* Toast */
+let toastTimer;
+function toast(msg, ok = true) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + (ok ? 'ok' : 'err');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = ''; }, 3500);
+}
+
+/* Update status cards */
+function updateCards(masuk, pulang) {
+  const cM = document.getElementById('cardMasuk');
+  const cP = document.getElementById('cardPulang');
+  document.getElementById('statusMasuk').textContent  = masuk  ? 'Sudah ✓' : 'Belum';
+  document.getElementById('statusPulang').textContent = pulang ? 'Sudah ✓' : 'Belum';
+  masuk  ? cM.classList.add('done')    : cM.classList.remove('done');
+  pulang ? cP.classList.add('done')    : cP.classList.remove('done');
+}
+
+/* Cek status dari server */
+async function cekStatus() {
+  const btn  = document.getElementById('btnCek');
+  const icon = document.getElementById('cekIcon');
+  btn.disabled = true;
+  icon.style.animation = 'spin .8s linear infinite';
+  try {
+    const r = await fetch('/api/cek-status');
+    const d = await r.json();
+    const elM = document.getElementById('cekMasuk');
+    const elP = document.getElementById('cekPulang');
+    elM.textContent = 'Masuk: '  + (d.masuk  ? 'Sudah ✓' : 'Belum');
+    elP.textContent = 'Pulang: ' + (d.pulang ? 'Sudah ✓' : 'Belum');
+    elM.className = 'cek-chip ' + (d.masuk  ? 'ok' : 'no');
+    elP.className = 'cek-chip ' + (d.pulang ? 'ok' : 'no');
+    document.getElementById('cekPesan').textContent = d.pesan || '';
+    document.getElementById('cekResult').classList.add('show');
+    if (d.ok) updateCards(d.masuk, d.pulang);
+    toast(d.pesan, d.ok);
+  } catch (e) {
+    toast('Gagal koneksi ke server', false);
+  } finally {
+    btn.disabled = false;
+    icon.style.animation = '';
+  }
+}
+
+/* Log drawer */
+function bukaLog() {
+  document.getElementById('logOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  muatLog();
+}
+function tutupLog(e) {
+  if (e && e.target !== document.getElementById('logOverlay')) return;
+  document.getElementById('logOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Log rendering */
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function parseLine(line) {
+  const m = line.match(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) \[(\w+)\] (.*)$/);
+  if (!m) return `<div class="log-line"><span class="log-msg" style="color:var(--subtle)">${escHtml(line)}</span></div>`;
+  const [, ts, lvl, msg] = m;
+  return `<div class="log-line"><span class="log-ts">${ts}</span><span class="log-lvl log-${lvl}">[${lvl}]</span><span class="log-msg">${escHtml(msg)}</span></div>`;
+}
+
+let lastLogHash = '';
+async function muatLog() {
+  try {
+    const logData = await fetch('/api/log').then(r => r.json());
+    const hash = logData.lines.length + '|' + (logData.lines[logData.lines.length-1] || '');
+    if (hash !== lastLogHash) {
+      lastLogHash = hash;
+      const box = document.getElementById('logBox');
+      box.innerHTML = logData.lines.map(parseLine).join('');
+      box.scrollTop = box.scrollHeight;
+    }
+    document.getElementById('logCount').textContent = `${logData.lines.length} baris`;
+  } catch (e) { /* silent */ }
+}
+
+async function refreshStatus() {
+  try {
+    const st = await fetch('/api/status').then(r => r.json());
+    updateCards(st.masuk, st.pulang);
+    const pill  = document.getElementById('prosesPill');
+    const label = document.getElementById('prosesLabel');
+    pill.className    = 'status-pill ' + (st.proses_jalan ? 'on' : 'off');
+    label.textContent = st.proses_jalan ? 'proses aktif' : 'proses mati';
+    if (document.getElementById('logOverlay').classList.contains('open')) muatLog();
+  } catch (e) { /* silent */ }
+}
+
+refreshStatus();
+setInterval(refreshStatus, 5000);
+</script>
+</body>
+</html>

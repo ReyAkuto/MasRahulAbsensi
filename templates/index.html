@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hulk Absen — Config</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Zinc neutral dark — clean, no blue tint */
+  --bg:        #0A0A0B;
+  --bg1:       #111113;
+  --bg2:       #18181B;
+  --bg3:       #1E1E22;
+  --bg4:       #26262C;
+
+  --br:        #27272A;
+  --br2:       #3F3F46;
+  --br3:       #52525B;
+
+  --text:      #FAFAFA;
+  --text-dim:  #A1A1AA;
+  --muted:     #71717A;
+  --subtle:    #3F3F46;
+
+  /* Emerald — primary accent */
+  --accent:        #10B981;
+  --accent-dim:    rgba(16,185,129,.08);
+  --accent-glow:   rgba(16,185,129,.16);
+  --accent-border: rgba(16,185,129,.22);
+
+  /* Amber — time / schedule */
+  --amber:         #F59E0B;
+  --amber-dim:     rgba(245,158,11,.08);
+  --amber-border:  rgba(245,158,11,.22);
+
+  /* Rose — errors / stop */
+  --red:           #F43F5E;
+  --red-dim:       rgba(244,63,94,.08);
+  --red-border:    rgba(244,63,94,.22);
+
+  /* Sky — info / secondary actions */
+  --blue:          #38BDF8;
+  --blue-dim:      rgba(56,189,248,.08);
+  --blue-border:   rgba(56,189,248,.22);
+
+  /* Aliases */
+  --teal:          var(--accent);
+  --teal-dim:      var(--accent-dim);
+  --teal-glow:     var(--accent-glow);
+  --teal-border:   var(--accent-border);
+
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'Geist', system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+header {
+  background: rgba(8,13,26,.92);
+  border-bottom: 1px solid var(--br);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+.wordmark {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: -.4px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.wm-hulk  { color: var(--teal); font-weight: 600; }
+.wm-slash { color: var(--muted); }
+.wm-absen { color: var(--text-dim); font-weight: 500; }
+
+.header-badge {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg3);
+  border: 1px solid var(--br2);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-pill {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .3px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .3s, border-color .3s;
+}
+.status-pill.on  { background: var(--teal-dim); border: 1px solid var(--teal-border); color: var(--teal); }
+.status-pill.off { background: var(--red-dim);  border: 1px solid var(--red-border);  color: var(--red); }
+
+.status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.status-pill.on  .status-dot { animation: blink 2s ease-in-out infinite; }
+.status-pill.off .status-dot { animation: blink 1.8s ease-in-out infinite; }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+.clock {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--amber);
+  letter-spacing: .6px;
+  font-weight: 500;
+}
+
+.btn-nav {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .4px;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--br2);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.btn-nav:hover { color: var(--text); border-color: var(--br3); background: var(--bg3); }
+
+/* ── Layout ── */
+.main {
+  display: grid;
+  grid-template-columns: 276px 1fr;
+  flex: 1;
+  height: calc(100dvh - 52px);
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+aside {
+  background: var(--bg1);
+  border-right: 1px solid var(--br);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+aside::-webkit-scrollbar { width: 3px; }
+aside::-webkit-scrollbar-thumb { background: var(--br2); border-radius: 2px; }
+
+/* ── Section Block ── */
+.s-block { padding: 12px 0 4px; }
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--br);
+  margin: 6px 0;
+}
+
+/* ── Absen Status Cards ── */
+.absen-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.absen-card {
+  background: var(--bg2);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-md);
+  padding: 13px 13px 11px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, background .3s;
+}
+.absen-card.done {
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
+}
+
+.card-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+.card-time {
+  font-family: var(--mono);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-top: 6px;
+  line-height: 1;
+  letter-spacing: -.5px;
+  transition: color .3s;
+}
+.absen-card.done .card-time { color: var(--teal); }
+
+.card-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.absen-card.done .card-sub { color: rgba(0,212,168,.5); }
+
+/* ── Server Status Box ── */
+.server-result {
+  background: var(--bg2);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: none;
+  margin-top: 8px;
+}
+.server-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--br);
+}
+.server-row:last-of-type { border-bottom: none; }
+.srv-label { font-size: 11px; color: var(--muted); font-family: var(--sans); }
+.srv-val   { font-family: var(--mono); font-size: 11px; font-weight: 500; }
+.srv-val.ok { color: var(--teal); }
+.srv-val.no { color: var(--subtle); }
+.srv-msg {
+  padding: 7px 12px;
+  font-size: 10px;
+  color: var(--muted);
+  border-top: 1px solid var(--br);
+  line-height: 1.6;
+  font-family: var(--mono);
+}
+
+details summary {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--subtle);
+  padding: 6px 12px;
+  cursor: pointer;
+  list-style: none;
+  border-top: 1px solid var(--br);
+  transition: color .12s;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary:hover { color: var(--muted); }
+pre.cek-raw {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--subtle);
+  padding: 4px 12px 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.65;
+}
+
+/* ── Schedule Block ── */
+.jam-block {
+  background: var(--bg2);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.jam-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 13px;
+}
+.jam-row + .jam-row { border-top: 1px solid var(--br); }
+.jam-row label { font-size: 11px; color: var(--muted); }
+.jam-row input {
+  background: var(--bg);
+  border: 1px solid var(--br2);
+  border-radius: var(--radius-sm);
+  color: var(--amber);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 9px;
+  width: 86px;
+  text-align: center;
+  transition: border-color .15s, box-shadow .15s;
+}
+.jam-row input:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(253,184,64,.08);
+}
+
+.hint {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--subtle);
+  line-height: 1.6;
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--br);
+}
+
+/* ── Buttons ── */
+.btn {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: var(--sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-align: center;
+  transition: opacity .12s, transform .12s, box-shadow .12s;
+  letter-spacing: .1px;
+}
+.btn + .btn { margin-top: 6px; }
+.btn-teal  { background: var(--teal-dim);  border-color: var(--teal-border);  color: var(--teal); }
+.btn-red   { background: var(--red-dim);   border-color: var(--red-border);   color: var(--red); }
+.btn-amber { background: var(--amber-dim); border-color: var(--amber-border); color: var(--amber); }
+.btn-blue  { background: var(--blue-dim);  border-color: var(--blue-border);  color: var(--blue); }
+.btn-muted { background: var(--bg2); border-color: var(--br); color: var(--subtle); opacity: .45; cursor: not-allowed; }
+.btn:not(:disabled):hover { opacity: .78; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.28); }
+.btn:not(:disabled):active { transform: translateY(0); }
+.btn:disabled { opacity: .32; cursor: not-allowed; transform: none; }
+
+.lock-notice {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* ── Log Panel ── */
+.log-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.log-header {
+  padding: 0 22px;
+  height: 52px;
+  border-bottom: 1px solid var(--br);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  background: var(--bg1);
+}
+.log-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+.log-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--subtle);
+  margin-left: auto;
+  background: var(--bg2);
+  border: 1px solid var(--br);
+  border-radius: var(--radius-sm);
+  padding: 2px 9px;
+}
+.live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2s ease-in-out infinite;
+}
+
+.log-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 22px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.85;
+}
+.log-scroll::-webkit-scrollbar { width: 3px; }
+.log-scroll::-webkit-scrollbar-thumb { background: var(--br2); border-radius: 2px; }
+
+.log-line {
+  display: flex;
+  gap: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background .1s;
+}
+.log-line:hover { background: rgba(255,255,255,.018); }
+.log-ts  { color: var(--subtle); white-space: nowrap; flex-shrink: 0; font-size: 10px; }
+.log-lvl { white-space: nowrap; flex-shrink: 0; width: 52px; font-size: 10px; }
+.log-msg { color: var(--text-dim); word-break: break-all; font-size: 10px; }
+.log-INFO    { color: var(--blue); }
+.log-ERROR   { color: var(--red); }
+.log-WARN    { color: var(--amber); }
+.log-WARNING { color: var(--amber); }
+
+/* ── Toast ── */
+#toast {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  background: var(--bg3);
+  border-radius: var(--radius-md);
+  padding: 11px 16px;
+  font-size: 12px;
+  max-width: 300px;
+  z-index: 999;
+  display: none;
+  border: 1px solid var(--br2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  font-family: var(--mono);
+}
+#toast.show { display: block; animation: fadeUp .18s ease; }
+#toast.ok   { border-color: var(--teal-border); color: var(--teal); }
+#toast.err  { border-color: var(--red-border);  color: var(--red); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .main { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  aside { border-right: none; border-bottom: 1px solid var(--br); max-height: 55vh; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <span class="wordmark">
+    <span class="wm-hulk">hulk</span>
+    <span class="wm-slash">/</span>
+    <span class="wm-absen">absen</span>
+  </span>
+  <span class="header-badge">config</span>
+  <div class="header-right">
+    <span class="status-pill off" id="prosesPill">
+      <span class="status-dot"></span>
+      <span id="prosesLabel">proses mati</span>
+    </span>
+    <span class="clock" id="clock">--:--:--</span>
+    <a href="/" class="btn-nav">
+      <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+      Dashboard
+    </a>
+  </div>
+</header>
+
+<!-- Main Layout -->
+<div class="main">
+
+  <!-- Sidebar -->
+  <aside>
+
+    <!-- Status hari ini -->
+    <div class="s-block">
+      <div class="sec-label">Status hari ini</div>
+      <div class="absen-cards">
+        <div class="absen-card" id="cardMasuk">
+          <div class="card-label">Masuk</div>
+          <div class="card-time" id="timeMasuk">—</div>
+          <div class="card-sub" id="subMasuk">Belum tercatat</div>
+        </div>
+        <div class="absen-card" id="cardPulang">
+          <div class="card-label">Pulang</div>
+          <div class="card-time" id="timePulang">—</div>
+          <div class="card-sub" id="subPulang">Belum tercatat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Cek Status Server -->
+    <div class="s-block">
+      <div class="sec-label">Status dari server</div>
+      <button class="btn btn-blue" id="btnCekStatus" onclick="cekStatusLive()">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1Z"/>
+          <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466Z"/>
+        </svg>
+        Cek status sekarang
+      </button>
+      <div class="server-result" id="cekBox">
+        <div class="server-row">
+          <span class="srv-label">Masuk</span>
+          <span class="srv-val no" id="cekMasuk">—</span>
+        </div>
+        <div class="server-row">
+          <span class="srv-label">Pulang</span>
+          <span class="srv-val no" id="cekPulang">—</span>
+        </div>
+        <div class="srv-msg" id="cekMsg"></div>
+        <details>
+          <summary>&#9656; raw output</summary>
+          <pre class="cek-raw" id="cekRaw"></pre>
+        </details>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Jadwal -->
+    <div class="s-block">
+      <div class="sec-label">Jadwal</div>
+      <div class="jam-block">
+        <div class="jam-row">
+          <label>Jam masuk</label>
+          <input type="time" id="jamMasuk" value="{{ jam_masuk }}">
+        </div>
+        <div class="jam-row">
+          <label>Jam pulang</label>
+          <input type="time" id="jamPulang" value="{{ jam_pulang }}">
+        </div>
+      </div>
+      <button class="btn btn-amber" style="margin-top:8px" onclick="simpanJam()">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+        </svg>
+        Simpan jadwal
+      </button>
+      <div class="hint">±5 menit delay acak aktif. Perubahan berlaku saat proses di-restart.</div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Proses Otomatis -->
+    <div class="s-block">
+      <div class="sec-label">Proses otomatis</div>
+      <button class="btn btn-teal" onclick="aksi('/api/mulai')">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+        </svg>
+        Mulai proses auto
+      </button>
+      <button class="btn btn-red" onclick="aksi('/api/hentikan')">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+        </svg>
+        Hentikan proses
+      </button>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Absen Manual -->
+    <div class="s-block">
+      <div class="sec-label">Absen manual</div>
+      <button class="btn btn-amber" id="btnMasuk"  onclick="absenManual('masuk')"  disabled>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+        </svg>
+        Absen masuk
+      </button>
+      <button class="btn btn-blue"  id="btnPulang" onclick="absenManual('pulang')" disabled>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 8h1v5.5A1.5 1.5 0 0 0 4 15h4.5V11h3V15H15a1.5 1.5 0 0 0 1.5-1.5V8h1a.5.5 0 0 0 .354-.854l-6-6z"/>
+        </svg>
+        Absen pulang
+      </button>
+      <div class="lock-notice" id="lockNotice">Cek status server dulu sebelum absen manual.</div>
+    </div>
+
+  </aside>
+
+  <!-- Log Panel -->
+  <div class="log-panel">
+    <div class="log-header">
+      <span class="live-dot"></span>
+      <span class="log-title">Log absensi</span>
+      <span class="log-count" id="logCount">0 baris</span>
+    </div>
+    <div class="log-scroll" id="logBox"></div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* Clock */
+(function tick() {
+  document.getElementById('clock').textContent = new Date().toTimeString().slice(0, 8);
+  setTimeout(tick, 1000);
+})();
+
+/* Toast */
+let toastTimer;
+function toast(msg, ok = true) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + (ok ? 'ok' : 'err');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = ''; }, 3500);
+}
+
+/* Generic POST */
+async function aksi(url, opts = {}) {
+  try {
+    const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, ...opts });
+    const d = await r.json();
+    toast(d.pesan, d.ok);
+    refreshLog();
+  } catch (e) { toast('Gagal koneksi ke server', false); }
+}
+
+/* Update sidebar absen cards */
+function updateAbsenCards(masuk, pulang, jamMasukTarget, jamPulangTarget) {
+  const cM = document.getElementById('cardMasuk');
+  const cP = document.getElementById('cardPulang');
+  if (masuk) {
+    cM.classList.add('done');
+    document.getElementById('timeMasuk').textContent = jamMasukTarget || 'Sudah';
+    document.getElementById('subMasuk').textContent  = 'Tercatat ✓';
+  } else {
+    cM.classList.remove('done');
+    document.getElementById('timeMasuk').textContent = '—';
+    document.getElementById('subMasuk').textContent  = 'Belum tercatat';
+  }
+  if (pulang) {
+    cP.classList.add('done');
+    document.getElementById('timePulang').textContent = jamPulangTarget || 'Sudah';
+    document.getElementById('subPulang').textContent  = 'Tercatat ✓';
+  } else {
+    cP.classList.remove('done');
+    document.getElementById('timePulang').textContent = jamPulangTarget || '—';
+    document.getElementById('subPulang').textContent  = jamPulangTarget ? 'Target jam pulang' : 'Belum tercatat';
+  }
+}
+
+/* Cek status live */
+let statusSudahDicek = false;
+async function cekStatusLive() {
+  const btn = document.getElementById('btnCekStatus');
+  btn.disabled = true; btn.textContent = 'Mengecek…';
+  try {
+    const r = await fetch('/api/cek-status');
+    const d = await r.json();
+    document.getElementById('cekBox').style.display = 'block';
+    const elM = document.getElementById('cekMasuk');
+    const elP = document.getElementById('cekPulang');
+    elM.textContent = d.masuk  ? 'Sudah ✓' : 'Belum';
+    elP.textContent = d.pulang ? 'Sudah ✓' : 'Belum';
+    elM.className   = 'srv-val ' + (d.masuk  ? 'ok' : 'no');
+    elP.className   = 'srv-val ' + (d.pulang ? 'ok' : 'no');
+    document.getElementById('cekMsg').textContent = d.pesan || '';
+    document.getElementById('cekRaw').textContent = d.raw   || '';
+    if (d.ok) {
+      statusSudahDicek = true;
+      unlockAbsenButtons(d.masuk, d.pulang);
+      document.getElementById('lockNotice').style.display = 'none';
+      updateAbsenCards(d.masuk, d.pulang, null, document.getElementById('jamPulang').value);
+    }
+    toast(d.pesan, d.ok);
+  } catch (e) {
+    toast('Gagal koneksi ke server', false);
+  } finally {
+    btn.disabled = false; btn.textContent = 'Cek status sekarang';
+  }
+}
+
+/* Lock/unlock absen manual */
+function unlockAbsenButtons(sudahMasuk, sudahPulang) {
+  const bM = document.getElementById('btnMasuk');
+  const bP = document.getElementById('btnPulang');
+  bM.disabled  = sudahMasuk;
+  bM.className = 'btn ' + (sudahMasuk ? 'btn-muted' : 'btn-amber');
+  bP.disabled  = !sudahMasuk || sudahPulang;
+  bP.className = 'btn ' + ((!sudahMasuk || sudahPulang) ? 'btn-muted' : 'btn-blue');
+}
+
+/* Absen manual */
+async function absenManual(tipe) {
+  if (!statusSudahDicek) { toast('Cek status server dulu!', false); return; }
+  if (!confirm('Yakin mau absen ' + tipe + ' sekarang?')) return;
+  await aksi('/api/absen', { body: JSON.stringify({ tipe, force: false }) });
+  statusSudahDicek = false;
+  document.getElementById('btnMasuk').disabled  = true;
+  document.getElementById('btnPulang').disabled = true;
+  document.getElementById('btnMasuk').className  = 'btn btn-muted';
+  document.getElementById('btnPulang').className = 'btn btn-muted';
+  document.getElementById('lockNotice').style.display = 'block';
+}
+
+/* Simpan jadwal */
+function simpanJam() {
+  const masuk  = document.getElementById('jamMasuk').value;
+  const pulang = document.getElementById('jamPulang').value;
+  aksi('/api/set-jam', { body: JSON.stringify({ masuk, pulang }) });
+}
+
+/* Log rendering */
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function parseLine(line) {
+  const m = line.match(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) \[(\w+)\] (.*)$/);
+  if (!m) return `<div class="log-line"><span class="log-msg" style="color:var(--subtle)">${escHtml(line)}</span></div>`;
+  const [, ts, lvl, msg] = m;
+  return `<div class="log-line"><span class="log-ts">${ts}</span><span class="log-lvl log-${lvl}">[${lvl}]</span><span class="log-msg">${escHtml(msg)}</span></div>`;
+}
+
+let lastLogHash = '';
+function hashLines(lines) {
+  if (!lines.length) return '';
+  return lines.length + '|' + lines[0] + '|' + lines[lines.length - 1];
+}
+
+async function refreshLog() {
+  try {
+    const [st, logData] = await Promise.all([
+      fetch('/api/status').then(r => r.json()),
+      fetch('/api/log').then(r => r.json()),
+    ]);
+    updateAbsenCards(st.masuk, st.pulang, null, document.getElementById('jamPulang').value);
+    const pill  = document.getElementById('prosesPill');
+    const label = document.getElementById('prosesLabel');
+    pill.className    = 'status-pill ' + (st.proses_jalan ? 'on' : 'off');
+    label.textContent = st.proses_jalan ? 'proses aktif' : 'proses mati';
+    const currentHash = hashLines(logData.lines);
+    if (currentHash !== lastLogHash) {
+      lastLogHash = currentHash;
+      const box = document.getElementById('logBox');
+      box.innerHTML = logData.lines.map(parseLine).join('');
+      box.scrollTop = box.scrollHeight;
+    }
+    document.getElementById('logCount').textContent = `${logData.lines.length} baris`;
+  } catch (e) { /* silent */ }
+}
+
+refreshLog();
+setInterval(refreshLog, 5000);
+</script>
+</body>
+</html>
