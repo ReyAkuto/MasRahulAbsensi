@@ -29,8 +29,16 @@ try:
 except ImportError:
     pass
 
-# ── Konfigurasi ──────────────────────────────────────────────────────────────
-ESENSI_PATH  = os.getenv("ESENSI_PATH",  str(Path(__file__).parent / "esensi.exe"))
+def get_esensi_path() -> str:
+    p = os.getenv("ESENSI_PATH")
+    if p and Path(p).exists():
+        return str(Path(p).resolve())
+    lokal = Path(__file__).parent / "esensi.exe"
+    if lokal.exists():
+        return str(lokal.resolve())
+    return "esensi.exe"
+
+ESENSI_PATH  = get_esensi_path()
 LOG_FILE     = os.getenv("LOG_FILE",     str(Path(__file__).parent / "absensi.log"))
 JADWAL_FILE  = Path(__file__).parent / "jadwal.json"
 POLL_DETIK   = int(os.getenv("POLL_DETIK",  "30")) # cek jam setiap N detik
@@ -91,19 +99,34 @@ def baca_jadwal() -> tuple[dtime, dtime, int, str, str]:
 
 def jalankan(args: list[str], timeout: int = 30) -> tuple[bool, str]:
     """
-    Jalankan esensi.exe dengan argumen tertentu.
+    Jalankan esensi.exe dengan argumen tertentu (otomatis pakai wine jika di Linux).
     Return (sukses, output_string).
     """
-    if not Path(ESENSI_PATH).exists():
-        return False, f"esensi.exe tidak ditemukan di: {ESENSI_PATH}"
+    esensi_path = get_esensi_path()
+    if not Path(esensi_path).exists():
+        return False, f"esensi.exe tidak ditemukan di: {esensi_path}"
 
-    cmd = [ESENSI_PATH] + args
+    import platform
+    env = os.environ.copy()
+    if platform.system() != "Windows":
+        env.setdefault("DISPLAY", ":1")
+        xdg = env.get("XDG_RUNTIME_DIR", "")
+        if not xdg or not Path(xdg).exists():
+            xdg_dir = Path("/run/user/0")
+            xdg_dir.mkdir(parents=True, exist_ok=True)
+            env["XDG_RUNTIME_DIR"] = str(xdg_dir)
+        cmd = ["wine", esensi_path] + args
+    else:
+        cmd = [esensi_path] + args
+
     try:
         hasil = subprocess.run(
             cmd,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             timeout=timeout,
+            env=env
         )
         out = (hasil.stdout + hasil.stderr).strip()
         return hasil.returncode == 0, out

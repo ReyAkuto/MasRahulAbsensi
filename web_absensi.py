@@ -28,7 +28,16 @@ except ImportError:
     pass
 
 # ── Config ────────────────────────────────────────────────────────────────────
-ESENSI_PATH = os.getenv("ESENSI_PATH", str(Path(__file__).parent / "esensi.exe"))
+def get_esensi_path() -> str:
+    p = os.getenv("ESENSI_PATH")
+    if p and Path(p).exists():
+        return str(Path(p).resolve())
+    lokal = Path(__file__).parent / "esensi.exe"
+    if lokal.exists():
+        return str(lokal.resolve())
+    return "esensi.exe"
+
+ESENSI_PATH = get_esensi_path()
 LOG_FILE    = os.getenv("LOG_FILE",    str(Path(__file__).parent / "absensi.log"))
 JADWAL_FILE = Path(__file__).parent / "jadwal.json"
 WEB_PORT    = int(os.getenv("WEB_PORT", "5000"))
@@ -79,12 +88,27 @@ if not _logger.handlers:
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def jalankan(args: list, timeout: int = 30):
-    if not Path(ESENSI_PATH).exists():
-        return False, f"esensi.exe tidak ditemukan: {ESENSI_PATH}"
+    esensi_path = get_esensi_path()
+    if not Path(esensi_path).exists():
+        return False, f"esensi.exe tidak ditemukan: {esensi_path}"
     try:
+        import platform
+        env = os.environ.copy()
+        if platform.system() != "Windows":
+            env.setdefault("DISPLAY", ":1")
+            xdg = env.get("XDG_RUNTIME_DIR", "")
+            if not xdg or not Path(xdg).exists():
+                xdg_dir = Path("/run/user/0")
+                xdg_dir.mkdir(parents=True, exist_ok=True)
+                env["XDG_RUNTIME_DIR"] = str(xdg_dir)
+            cmd = ["wine", esensi_path] + args
+        else:
+            cmd = [esensi_path] + args
+
         hasil = subprocess.run(
-            [ESENSI_PATH] + args,
-            capture_output=True, text=True, timeout=timeout
+            cmd,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=timeout,
+            env=env
         )
         out = (hasil.stdout + hasil.stderr).strip()
         return hasil.returncode == 0, out
@@ -159,16 +183,29 @@ def cek_status_live() -> dict:
     return {"ok": True, "masuk": sudah_masuk, "pulang": sudah_pulang, "pesan": pesan, "raw": bersih}
 
 def absen_manual(tipe: str, force: bool = False):
-    # FIX Bug 8: parameter `force` sekarang diteruskan ke esensi.exe jika True
-    if not Path(ESENSI_PATH).exists():
-        return False, f"esensi.exe tidak ditemukan: {ESENSI_PATH}"
+    esensi_path = get_esensi_path()
+    if not Path(esensi_path).exists():
+        return False, f"esensi.exe tidak ditemukan: {esensi_path}"
     try:
-        cmd = [ESENSI_PATH, tipe]
+        import platform
+        env = os.environ.copy()
+        if platform.system() != "Windows":
+            env.setdefault("DISPLAY", ":1")
+            xdg = env.get("XDG_RUNTIME_DIR", "")
+            if not xdg or not Path(xdg).exists():
+                xdg_dir = Path("/run/user/0")
+                xdg_dir.mkdir(parents=True, exist_ok=True)
+                env["XDG_RUNTIME_DIR"] = str(xdg_dir)
+            cmd = ["wine", esensi_path, tipe]
+        else:
+            cmd = [esensi_path, tipe]
+
         if force:
             cmd.append("--force")
         hasil = subprocess.run(
             cmd,
-            capture_output=True, text=True, timeout=30
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=30,
+            env=env
         )
         out = (hasil.stdout + hasil.stderr).strip()
         ok  = hasil.returncode == 0
