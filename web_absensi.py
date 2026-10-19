@@ -8,6 +8,7 @@ Buka browser: http://localhost:5000
 
 import os
 import sys
+import json
 import subprocess
 import time
 import logging as _logging
@@ -22,22 +23,42 @@ except ImportError:
 
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(override=True)
 except ImportError:
     pass
 
 # ── Config ────────────────────────────────────────────────────────────────────
 ESENSI_PATH = os.getenv("ESENSI_PATH", str(Path(__file__).parent / "esensi.exe"))
 LOG_FILE    = os.getenv("LOG_FILE",    str(Path(__file__).parent / "absensi.log"))
-JAM_MASUK   = os.getenv("JAM_MASUK",  "08:00")
-JAM_PULANG  = os.getenv("JAM_PULANG", "17:00")
+JADWAL_FILE = Path(__file__).parent / "jadwal.json"
 WEB_PORT    = int(os.getenv("WEB_PORT", "5000"))
 WEB_HOST    = os.getenv("WEB_HOST", "0.0.0.0")
 
+def baca_jadwal_config() -> dict:
+    default = {
+        "jam_masuk": "07:18",
+        "jam_pulang": "16:40",
+        "delay_menit": 15
+    }
+    if JADWAL_FILE.exists():
+        try:
+            data = json.loads(JADWAL_FILE.read_text(encoding="utf-8"))
+            default.update(data)
+            return default
+        except Exception:
+            pass
+    simpan_jadwal_config(default)
+    return default
+
+def simpan_jadwal_config(cfg: dict):
+    JADWAL_FILE.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
+
 # ── State ─────────────────────────────────────────────────────────────────────
-absen_proses  = None
-jam_masuk_rt  = JAM_MASUK
-jam_pulang_rt = JAM_PULANG
+absen_proses   = None
+_cfg_init      = baca_jadwal_config()
+jam_masuk_rt   = _cfg_init["jam_masuk"]
+jam_pulang_rt  = _cfg_init["jam_pulang"]
+delay_menit_rt = int(_cfg_init.get("delay_menit", 15))
 
 # Cache hasil cek status live dari server (agar card kiri sinkron)
 _status_live_cache = {"masuk": False, "pulang": False, "tanggal": None}
@@ -238,17 +259,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("dashboard.html", jam_masuk=jam_masuk_rt, jam_pulang=jam_pulang_rt)
+    cfg = baca_jadwal_config()
+    return render_template("dashboard.html", jam_masuk=cfg["jam_masuk"], jam_pulang=cfg["jam_pulang"], delay_menit=cfg.get("delay_menit", 15))
 
 @app.route("/config")
 def config():
-    return render_template("index.html", jam_masuk=jam_masuk_rt, jam_pulang=jam_pulang_rt)
+    cfg = baca_jadwal_config()
+    return render_template("index.html", jam_masuk=cfg["jam_masuk"], jam_pulang=cfg["jam_pulang"], delay_menit=cfg.get("delay_menit", 15))
 
 
 @app.route("/api/status")
 def api_status():
     st = get_status_log()
     st["proses_jalan"] = is_proses_jalan()
+    cfg = baca_jadwal_config()
+    st["jam_masuk"] = cfg["jam_masuk"]
+    st["jam_pulang"] = cfg["jam_pulang"]
+    st["delay_menit"] = cfg.get("delay_menit", 15)
     return jsonify(st)
 
 @app.route("/api/log")
@@ -281,26 +308,29 @@ def api_absen():
 
 @app.route("/api/set-jam", methods=["POST"])
 def api_set_jam():
-    global jam_masuk_rt, jam_pulang_rt
+    global jam_masuk_rt, jam_pulang_rt, delay_menit_rt
     data = request.get_json(force=True) or {}
-    jam_masuk_rt  = data.get("masuk",  jam_masuk_rt)
-    jam_pulang_rt = data.get("pulang", jam_pulang_rt)
-    env_path = Path(__file__).parent / ".env"
+    cfg = baca_jadwal_config()
+    jam_masuk_rt   = data.get("masuk",  cfg["jam_masuk"])
+    jam_pulang_rt  = data.get("pulang", cfg["jam_pulang"])
     try:
-        lines = env_path.read_text().splitlines() if env_path.exists() else []
-        new_lines = []
-        set_m = set_p = False
-        for l in lines:
-            if l.startswith("JAM_MASUK="):   new_lines.append(f"JAM_MASUK={jam_masuk_rt}");  set_m = True
-            elif l.startswith("JAM_PULANG="): new_lines.append(f"JAM_PULANG={jam_pulang_rt}"); set_p = True
-            else: new_lines.append(l)
-        if not set_m: new_lines.append(f"JAM_MASUK={jam_masuk_rt}")
-        if not set_p: new_lines.append(f"JAM_PULANG={jam_pulang_rt}")
-        env_path.write_text("\n".join(new_lines) + "\n")
-        return jsonify({"ok": True, "pesan": f"Jadwal disimpan: masuk {jam_masuk_rt}, pulang {jam_pulang_rt}"})
+        delay_menit_rt = int(data.get("delay_menit", cfg.get("delay_menit", 15)))
+    except (ValueError, TypeError):
+        delay_menit_rt = 15
+
+    cfg["jam_masuk"]   = jam_masuk_rt
+    cfg["jam_pulang"]  = jam_pulang_rt
+    cfg["delay_menit"] = delay_menit_rt
+
+    try:
+        simpan_jadwal_config(cfg)
+        _logger.info(f"[set-jam] Jadwal tersimpan ke {JADWAL_FILE.name}: Masuk {jam_masuk_rt}, Pulang {jam_pulang_rt}, Delay ±{delay_menit_rt}m")
+        return jsonify({
+            "ok": True,
+            "pesan": f"Jadwal disimpan: masuk {jam_masuk_rt}, pulang {jam_pulang_rt} (delay acak ±{delay_menit_rt} menit). Otomatis aktif!"
+        })
     except Exception as e:
-        # FIX Bug 7: return ok=False jika gagal tulis .env agar frontend tahu ada masalah
-        return jsonify({"ok": False, "pesan": f"Jadwal diperbarui di memori saja (gagal tulis .env: {e}). Akan hilang saat restart."})
+        return jsonify({"ok": False, "pesan": f"Gagal menyimpan jadwal: {e}"})
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  MAIN

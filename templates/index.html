@@ -586,6 +586,10 @@ pre.cek-raw {
           <label>Jam pulang</label>
           <input type="time" id="jamPulang" value="{{ jam_pulang }}">
         </div>
+        <div class="jam-row">
+          <label>Delay acak (menit)</label>
+          <input type="number" id="delayMenit" min="0" max="60" value="{{ delay_menit or 15 }}" style="background:var(--bg3);border:1px solid var(--br2);color:var(--text);font-family:var(--mono);border-radius:var(--radius-sm);padding:4px 8px;width:65px;text-align:right;">
+        </div>
       </div>
       <button class="btn btn-amber" style="margin-top:8px" onclick="simpanJam()">
         <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
@@ -593,7 +597,7 @@ pre.cek-raw {
         </svg>
         Simpan jadwal
       </button>
-      <div class="hint">±5 menit delay acak aktif. Perubahan berlaku saat proses di-restart.</div>
+      <div class="hint">Delay acak aktif (0 s/d N menit). Perubahan jadwal langsung aktif seketika tanpa perlu restart.</div>
     </div>
 
     <div class="sidebar-divider"></div>
@@ -761,7 +765,9 @@ async function absenManual(tipe) {
 function simpanJam() {
   const masuk  = document.getElementById('jamMasuk').value;
   const pulang = document.getElementById('jamPulang').value;
-  aksi('/api/set-jam', { body: JSON.stringify({ masuk, pulang }) });
+  const delayEl = document.getElementById('delayMenit');
+  const delay_menit = delayEl ? parseInt(delayEl.value) || 15 : 15;
+  aksi('/api/set-jam', { body: JSON.stringify({ masuk, pulang, delay_menit }) });
 }
 
 /* Log rendering */

@@ -576,11 +576,11 @@ header {
     </div>
     <div class="info-chip">
       <span class="chip-label">Jam masuk</span>
-      <span class="chip-val amber">{{ jam_masuk }}</span>
+      <span class="chip-val amber" id="valJamMasuk">{{ jam_masuk }}</span>
     </div>
     <div class="info-chip">
       <span class="chip-label">Jam pulang</span>
-      <span class="chip-val amber">{{ jam_pulang }}</span>
+      <span class="chip-val amber" id="valJamPulang">{{ jam_pulang }}</span>
     </div>
   </div>
 
@@ -730,6 +730,12 @@ async function refreshStatus() {
     const label = document.getElementById('prosesLabel');
     pill.className    = 'status-pill ' + (st.proses_jalan ? 'on' : 'off');
     label.textContent = st.proses_jalan ? 'proses aktif' : 'proses mati';
+    if (st.jam_masuk && document.getElementById('valJamMasuk')) {
+      document.getElementById('valJamMasuk').textContent = st.jam_masuk;
+    }
+    if (st.jam_pulang && document.getElementById('valJamPulang')) {
+      document.getElementById('valJamPulang').textContent = st.jam_pulang;
+    }
     if (document.getElementById('logOverlay').classList.contains('open')) muatLog();
   } catch (e) { /* silent */ }
 }

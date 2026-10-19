@@ -15,6 +15,7 @@ Logika:
 
 import os
 import sys
+import json
 import subprocess
 import time
 import random
@@ -24,16 +25,14 @@ from pathlib import Path
 
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(override=True)
 except ImportError:
     pass
 
 # ── Konfigurasi ──────────────────────────────────────────────────────────────
 ESENSI_PATH  = os.getenv("ESENSI_PATH",  str(Path(__file__).parent / "esensi.exe"))
 LOG_FILE     = os.getenv("LOG_FILE",     str(Path(__file__).parent / "absensi.log"))
-JAM_MASUK    = os.getenv("JAM_MASUK",   "08:00")   # format HH:MM
-JAM_PULANG   = os.getenv("JAM_PULANG",  "17:00")   # format HH:MM
-DELAY_MENIT  = int(os.getenv("DELAY_MENIT",  "30")) # random delay ±N menit
+JADWAL_FILE  = Path(__file__).parent / "jadwal.json"
 POLL_DETIK   = int(os.getenv("POLL_DETIK",  "30")) # cek jam setiap N detik
 POLL_MALAM   = 300  # polling interval (detik) setelah absen selesai
 
@@ -60,7 +59,34 @@ def parse_jam(s: str) -> dtime:
 
 def random_delay(menit: int) -> int:
     """Return detik delay acak antara 0 hingga menit*60."""
-    return random.randint(0, menit * 60)
+    return random.randint(0, max(0, menit * 60))
+
+
+def baca_jadwal() -> tuple[dtime, dtime, int, str, str]:
+    """
+    Membaca jadwal secara dinamis dari jadwal.json.
+    Mengembalikan (jam_masuk_obj, jam_pulang_obj, delay_menit, masuk_str, pulang_str).
+    """
+    default = {
+        "jam_masuk": "07:18",
+        "jam_pulang": "16:40",
+        "delay_menit": 15
+    }
+    if JADWAL_FILE.exists():
+        try:
+            data = json.loads(JADWAL_FILE.read_text(encoding="utf-8"))
+            default.update(data)
+        except Exception as e:
+            log.warning(f"Gagal membaca {JADWAL_FILE.name}: {e}. Memakai default.")
+
+    masuk_str = default.get("jam_masuk", "07:18")
+    pulang_str = default.get("jam_pulang", "16:40")
+    try:
+        delay = int(default.get("delay_menit", 15))
+    except (ValueError, TypeError):
+        delay = 15
+
+    return parse_jam(masuk_str), parse_jam(pulang_str), delay, masuk_str, pulang_str
 
 
 def jalankan(args: list[str], timeout: int = 30) -> tuple[bool, str]:
@@ -149,15 +175,24 @@ def cek_status_hari_ini() -> dict:
     return hasil
 
 
-def absen(tipe: str) -> bool:
+def absen(tipe: str, delay_menit: int = 15) -> bool:
     """
-    Lakukan absen masuk atau pulang.
+    Lakukan absen masuk atau pulang dengan delay acak.
     tipe: 'masuk' | 'pulang'
     Return True jika berhasil.
     """
-    delay = random_delay(DELAY_MENIT)
-    log.info(f"Menunggu delay acak {delay} detik sebelum absen {tipe}…")
+    delay = random_delay(delay_menit)
+    log.info(f"Menunggu delay acak {delay} detik (maks ±{delay_menit} menit) sebelum absen {tipe}…")
     time.sleep(delay)
+
+    # Cek sekali lagi setelah delay (siapa tahu sudah absen manual di sela delay)
+    st2 = cek_status_hari_ini()
+    if tipe == "masuk" and st2.get("masuk"):
+        log.info(f"[{tipe}] Sudah absen masuk saat menunggu delay. Lewati.")
+        return True
+    if tipe == "pulang" and st2.get("pulang"):
+        log.info(f"[{tipe}] Sudah absen pulang saat menunggu delay. Lewati.")
+        return True
 
     log.info(f"Mengirim absen {tipe}…")
     ok, out = jalankan([tipe])
@@ -209,16 +244,19 @@ def _reset_state_harian(hari_ini):
 def main():
     log.info("=" * 60)
     log.info("Hulk Absen mulai berjalan.")
-    log.info(f"  esensi.exe : {ESENSI_PATH}")
-    log.info(f"  Jam masuk  : {JAM_MASUK}")
-    log.info(f"  Jam pulang : {JAM_PULANG}")
-    log.info(f"  Delay maks : ±{DELAY_MENIT} menit")
+    log.info(f"  esensi.exe   : {ESENSI_PATH}")
+    log.info(f"  File jadwal  : {JADWAL_FILE.name}")
     log.info("=" * 60)
 
-    jam_masuk_obj  = parse_jam(JAM_MASUK)
-    jam_pulang_obj = parse_jam(JAM_PULANG)
+    last_sched_str = None
 
     while True:
+        jam_masuk_obj, jam_pulang_obj, delay_menit, masuk_str, pulang_str = baca_jadwal()
+        curr_sched = f"{masuk_str}|{pulang_str}|{delay_menit}"
+        if curr_sched != last_sched_str:
+            log.info(f"Jadwal aktif: Jam masuk {masuk_str} | Jam pulang {pulang_str} | Delay acak ±{delay_menit} menit")
+            last_sched_str = curr_sched
+
         sekarang = datetime.now()
         waktu    = sekarang.time().replace(second=0, microsecond=0)
         hari_ini = sekarang.date()
@@ -246,7 +284,7 @@ def main():
                     log.info("Sudah absen masuk (dari status-today). Lewati.")
                     _state["sudah_masuk"] = True
                 else:
-                    ok = absen("masuk")
+                    ok = absen("masuk", delay_menit)
                     _state["sudah_masuk"] = ok
 
         # ── Jam pulang tiba tapi sudah_masuk masih False ─────────────
@@ -276,7 +314,7 @@ def main():
                     log.info("Sudah absen pulang (dari status-today). Lewati.")
                     _state["sudah_pulang"] = True
                 else:
-                    ok = absen("pulang")
+                    ok = absen("pulang", delay_menit)
                     _state["sudah_pulang"] = ok
                     if not ok:
                         log.warning(
